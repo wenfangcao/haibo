@@ -28,8 +28,23 @@
 			</div>
 		</div>
 
-		<div>
-			
+		<div class="container proBgc">
+			<div class="row">
+				<div class="col-xs-2 prolistLeft">
+					<p>羽绒服</p>
+					<img src="../assets/img/product/Ts.png" alt="Ts">
+					<b>HAIBO</b>
+				</div>
+				<div class="col-xs-9">
+					<div class="row prolistRight">
+						<div class="col-xs-1 prolistBan">&lt;</div>
+						<div class="col-xs-3 prolistmidimg"><img src="../assets/img/product/1.jpg" alt=""></div>
+						<div class="col-xs-3 prolistmidimg"><img src="../assets/img/product/2.jpg" alt=""></div>
+						<div class="col-xs-3 prolistmidimg"><img src="../assets/img/product/3.jpg" alt=""></div>
+						<div class="col-xs-1 prolistBan">&gt;</div>
+					</div>
+				</div>
+			</div>
 		</div>
   </div>
 </template>
