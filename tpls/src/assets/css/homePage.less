@@ -1,0 +1,183 @@
+body{
+	background:#F5F5F5;
+}
+.marginTop20{
+	margin-top:3%;
+}
+/*banner图*/
+.outdiv{
+	width:100%;
+	height:100%;
+}
+.preNextBtn1,.preNextBtn2{
+	font-size:4em;
+	margin-top:12%;
+	opacity:0.7;
+	cursor:pointer;
+}
+.preNextBtn1{
+	float:left;
+}
+.preNextBtn2{
+	float:right;
+}
+.banner{
+	width:70%;
+	margin:0 auto;
+	margin-top:5%;
+	position:relative;
+}
+.bandiv{
+	width:80%;
+	margin:0 auto;
+	overflow:hidden;
+}
+.banner img{
+	position:absolute;
+	transition:all .6s ease-in-out;
+	cursor:pointer;
+}
+.banImgMid{
+	width:34%;
+	left:33%;
+}
+.banImgPre{
+	width:19%;
+	left:12%;
+	margin-top:5%;
+}
+.banImgPre2{
+	width:12%;
+	left:0%;
+	margin-top:8%;
+}
+.banImgNext{
+	width:19%;
+	left:67%;
+	margin-top:5%;
+}
+.banImgNext2{
+	width:12%;
+	left:87%;
+	margin-top:8%;
+}
+.banImgPre3{
+	left:-1%;
+	width:0px;
+	margin-top:15%;
+}
+.banImgNext3{
+	width:0px;
+	left:101%;
+	margin-top:15%;
+}
+h3{
+	margin:0 !important;
+	padding:0 !important;
+}
+.titleDetails{
+	display:block;
+	margin-top:2%;
+	color:#82786C;
+}
+.ulbtn>li{
+	float:left;
+	width:10px;
+	height:10px;
+	background:#717171;
+	border-radius:50%;
+	margin:0 2%;
+	opacity:0.5;
+	cursor:pointer;
+}
+.ulbtn{
+	position:absolute;
+	bottom:-180%;
+	left:45%;
+	width:15%;
+}
+.ulbtncolor{
+	opacity:1 !important;
+}
+@media screen and (max-width:767px){
+	.banImgPre{
+		display:none;
+	}
+	.banImgNext{
+		display:none;
+	}
+	.banImgPre2{
+		display:none;
+	}
+	.banImgNext2{
+		display:none;
+	}
+	.banImgMid{
+		width:46%;
+		left:27%;
+	}
+	.preNextBtn1,.preNextBtn2{
+		width:10%;
+	}
+	h2,h3{
+		font-size:20px !important;
+	}
+	.banner{
+		width:100%;
+	}
+}
+@media screen and (min-width:768px) and (max-width:991px){
+	.marginCol>div{
+		margin:12px 0;
+	}
+	.banImgPre2{
+		display:none;
+	}
+	.banImgNext2{
+		display:none;
+	}
+	.banImgMid{
+		width:40%;
+		left:30%;
+	}
+	.banImgPre{
+		width:20%;
+	}
+	.banImgNext{
+		width:20%;
+	}
+	.preNextBtn1,.preNextBtn2{
+		width:8%;
+	}
+	.banner{
+		width:90%;
+	}
+}
+@media screen and (min-width:992px) and (max-width:1200px){
+	.marginCol>div{
+		margin:13px 0;
+	}
+	.banImgPre2{
+		display:none;
+	}
+	.banImgNext2{
+		display:none;
+	}
+	.banner{
+		width:80%;
+	}
+}
+@media screen and (min-width:1201px){
+	.marginCol>div{
+		margin:18px 0;
+	}
+	h2{
+		font-size:40px !important;
+	}
+	.preNextBtn1{
+		margin-left:-7%;
+	}
+	.preNextBtn2{
+		margin-right:-7%;
+	}
+}
