@@ -37,17 +37,43 @@
 				</div>
 				<div class="col-xs-9">
 					<div class="row prolistRight">
-						<div class="col-xs-1 prolistBan">&lt;</div>
-						<div class="col-xs-3 prolistmidimg"><img src="../assets/img/product/1.jpg" alt=""></div>
-						<div class="col-xs-3 prolistmidimg"><img src="../assets/img/product/2.jpg" alt=""></div>
-						<div class="col-xs-3 prolistmidimg"><img src="../assets/img/product/3.jpg" alt=""></div>
-						<div class="col-xs-1 prolistBan">&gt;</div>
+						<div @click="prolistbanleft" class="col-xs-1 prolistBan">&lt;</div>
+							<div class="col-xs-9 banOutDiv">
+								<div class="banInDiv row">
+									<div class="col-xs-2 prolistmidimg"><img src="../assets/img/product/1.jpg" alt=""></div>
+									<div class="col-xs-2 prolistmidimg"><img src="../assets/img/product/2.jpg" alt=""></div>
+									<div class="col-xs-2 prolistmidimg"><img src="../assets/img/product/3.jpg" alt=""></div>
+									<div class="col-xs-2 prolistmidimg"><img src="../assets/img/product/1.jpg" alt=""></div>
+									<div class="col-xs-2 prolistmidimg"><img src="../assets/img/product/2.jpg" alt=""></div>
+									<div class="col-xs-2 prolistmidimg"><img src="../assets/img/product/3.jpg" alt=""></div>
+								</div>
+								
+							</div>
+						
+						<div @click="prolistbanright" class="col-xs-1 prolistBan">&gt;</div>
 					</div>
 				</div>
 			</div>
 		</div>
   </div>
 </template>
+<script>
+	export default{
+		methods:{
+			prolistban:function(){
+				var n = 0;
+				var WIDTH = 0.35;
+				return function(){
+					console.log(1);
+				}
+			},
+			prolistbanright:function(){
+				
+
+			}
+		}
+	}
+</script>
 <style>
-    @import '../assets/css/product.less';
+	@import '../assets/css/product.less';
 </style>
