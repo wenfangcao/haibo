@@ -20,9 +20,9 @@
 				</div>
 				<div class="col-xs-6">
 						<div class="row minNavRight">
-							<div class="col-xs-4"><a>2017 A/W</a></div>
-							<div class="col-xs-4"><a>2017 s/s</a></div>
-							<div class="col-xs-4"><a>2017 a/w</a></div>
+							<div class="col-xs-4"><a>2018 夏装</a></div>
+							<div class="col-xs-4"><a>2017 冬装</a></div>
+							<div class="col-xs-4"><a>2017 秋装</a></div>
 						</div>		
 				</div>
 			</div>
@@ -37,20 +37,62 @@
 				</div>
 				<div class="col-xs-9">
 					<div class="row prolistRight">
-						<div @click="prolistbanleft" class="col-xs-1 prolistBan">&lt;</div>
+						<div @click="prolistbanleft" class="col-xs-1 prolistBan prolistBan1" v-if="n!=1">&lt;</div>
 							<div class="col-xs-9 banOutDiv">
 								<div class="banInDiv row">
-									<div class="col-xs-2 prolistmidimg"><img src="../assets/img/product/1.jpg" alt=""></div>
-									<div class="col-xs-2 prolistmidimg"><img src="../assets/img/product/2.jpg" alt=""></div>
-									<div class="col-xs-2 prolistmidimg"><img src="../assets/img/product/3.jpg" alt=""></div>
-									<div class="col-xs-2 prolistmidimg"><img src="../assets/img/product/1.jpg" alt=""></div>
-									<div class="col-xs-2 prolistmidimg"><img src="../assets/img/product/2.jpg" alt=""></div>
-									<div class="col-xs-2 prolistmidimg"><img src="../assets/img/product/3.jpg" alt=""></div>
+									<div class="col-xs-2 prolistmidimg">
+										<img src="../assets/img/product/1.jpg" alt="">
+										<div class="phover"></div>
+										<div class="chover">
+											<img src="../assets/img/product/2.png" alt=""><br><br>
+											<span>haibo 羽绒服</span>
+										</div>
+									</div>
+									<div class="col-xs-2 prolistmidimg">
+										<img src="../assets/img/product/2.jpg" alt="">
+										<div class="phover"></div>
+										<div class="chover">
+											<img src="../assets/img/product/2.png" alt=""><br><br>
+											<span>haibo 羽绒服</span>
+										</div>
+									</div>
+									<div class="col-xs-2 prolistmidimg">
+										<img src="../assets/img/product/3.jpg" alt="">
+										<div class="phover"></div>
+										<div class="chover">
+											<img src="../assets/img/product/2.png" alt=""><br><br>
+											<span>haibo 羽绒服</span>
+										</div>	
+									</div>
+									<div class="col-xs-2 prolistmidimg">
+										<img src="../assets/img/product/1.jpg" alt="">
+										<div class="phover"></div>
+										<div class="chover">
+											<img src="../assets/img/product/2.png" alt=""><br><br>
+											<span>haibo 羽绒服</span>
+										</div>	
+									</div>
+									<div class="col-xs-2 prolistmidimg">
+										<img src="../assets/img/product/2.jpg" alt="">
+										<div class="phover"></div>
+										<div class="chover">
+											<img src="../assets/img/product/2.png" alt=""><br><br>
+											<span>haibo 羽绒服</span>
+										</div>	
+									</div>
+									<div class="col-xs-2 prolistmidimg">
+										<img src="../assets/img/product/3.jpg" alt="">
+										<div class="phover"></div>
+										<div class="chover">
+											<img src="../assets/img/product/2.png" alt=""><br><br>
+											<span>haibo 羽绒服</span>
+										</div>	
+									</div>
 								</div>
 								
 							</div>
 						
-						<div @click="prolistbanright" class="col-xs-1 prolistBan">&gt;</div>
+						<div @click="prolistbanright" class="col-xs-1 prolistBan prolistBan2" v-if="n!=-4">&gt;</div>
 					</div>
 				</div>
 			</div>
@@ -61,19 +103,32 @@
 	export default{
 		methods:{
 			prolistban:function(){
-				var n = 0;
-				var WIDTH = 0.35;
-				return function(){
-					console.log(1);
-				}
+				var WIDTH = 35;
+				var marginLeft = (WIDTH*this.n-4)+"%";
+				console.log(marginLeft);
+				console.log(this.n);
+				$('.banInDiv').css("marginLeft",marginLeft);
 			},
 			prolistbanright:function(){
-				
-
+				this.n--;
+				this.prolistban();
+			},
+			prolistbanleft:function(){
+				this.n++;
+				this.prolistban();
 			}
+		},
+		data(){
+			return {
+				n : -1,
+				timer : 0
+			}
+		},
+		mounted(){
+
 		}
 	}
 </script>
-<style>
+<style scoped>
 	@import '../assets/css/product.less';
 </style>

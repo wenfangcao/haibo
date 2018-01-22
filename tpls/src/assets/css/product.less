@@ -34,6 +34,16 @@
 	width:25%;
 	margin:0 auto;
 }
+.pro .nav-no1:hover a{
+	text-decoration: none;
+}
+.pro .nav-no1 a:hover{
+	color:#B68A54;
+}
+.pro .nav-no1 a,.minNavRight a{
+	color:black;
+	cursor:pointer;
+}
 .pro .proNav{
 	width:100%;
 	margin-top:-30px;
@@ -46,6 +56,10 @@
 	height:2px;
 	width:100%;
 	margin-top:10px;
+}
+.pro .minNav:after{
+	background:black;
+	height:1px;
 }
 .pro .proMinTitle{
 	background:#232A37;
@@ -64,6 +78,10 @@
 .pro .proBgc{
 	background:#242A38;
 	padding:70px 0 70px 40px;
+	transition:all .5s;
+}
+.pro .proBgc:hover{
+	background:#B68A54;
 }
 
 .pro .prolistLeft>p:before{
@@ -114,11 +132,71 @@
 	position:relative;
 	top:130px;
 	color:white;
+	cursor:pointer;
+}
+.pro .proBgc .prolistBan1:hover{
+	animation:btn1 1s;
+}
+.pro .proBgc .prolistBan2:hover{
+	animation:btn2 1s;
 }
 .pro .banOutDiv{
 	overflow:hidden;
 }
 .pro .banInDiv{
-	width:210%;
+	width:225%;
 	margin-left:-4%;
+	transition:all .5s;
+	box-sizing:border-box;
+}
+.pro .prolistmidimg{
+	position:relative;
+	overflow:hidden;
+	padding:0;
+	margin-right:1%;
+	width:15%;
+}
+.pro .prolistmidimg>img{
+	width:100%;
+	
+}
+.pro .prolistmidimg:hover .phover{
+	left:0;
+	transition:all .5s;
+}
+.pro .banInDiv .phover{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:-100%;
+	background:rgba(0,0,0,0.5);
+	transition:all .5s;
+}
+.pro .banInDiv .chover{
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:-100%;
+	left:35%;
+	transition:all .8s;
+	color:white;
+}
+.pro .prolistmidimg:hover .chover{
+	animation: chover .5s ease-in;
+	top:30%;
+	
+}
+@keyframes btn1{
+	0% {left:30px;font-size:3em;top:150px;}
+	100%{left:-20px;font-size:5em;top:130px;}
+}
+@keyframes btn2{
+	0% {right:20px;font-size:3em;top:150px;}
+	100%{right:-30px;font-size:5em;top:130px;}
+}
+@keyframes chover {
+	0% {top:-100%;}
+	70%{top:42%;}
+	100%{top:30%;}
 }
