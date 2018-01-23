@@ -8,8 +8,11 @@ import './assets/js/jquery-3.2.1.js'
 import './assets/js/bootstrap.js'
 import './assets/js/less.min.js'
 import Header from './components/Header'
+import Footer from './components/Footer'
+import Prolist from './components/ProlistComponent'
+Vue.component('Prolist',Prolist)
 Vue.component('Header',Header)
-
+Vue.component('Footer',Footer)
 import VueResource from 'Vue-resource'
 Vue.use(VueResource)
 Vue.config.productionTip = false

@@ -1,11 +1,12 @@
+
 <template>
   <div class="pro">
-      <Header class="headerdiv"></Header>
-      <div class="bantitle text-center">
+        <Header class="headerdiv"></Header>
+        <div class="bantitle text-center">
 			<h1>Product</h1>
 			<h5 class="btn">CLICK ENTER</h5>
 			<span>HAIB Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, voluptatum, ea, consequatur corporis <br> dolores ex maiores a tempora eligendi iste sapiente mollitia inventore aut rem aperiam totam aliquid laudantium tempore.</span>
-		</div>
+	    </div>
 		<div class="proNav container">
 			<div class="row nav-no1">
 				<div class="col-xs-4"><a>首页</a></div>
@@ -27,8 +28,10 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="container proBgc">
+		<Prolist></Prolist>
+		<Prolist></Prolist>
+		
+	<!--	<div class="container proBgc">
 			<div class="row">
 				<div class="col-xs-2 prolistLeft">
 					<p>羽绒服</p>
@@ -96,34 +99,21 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
+		<Footer></Footer>
   </div>
 </template>
 <script>
+	import Prolist from './ProlistComponent'
 	export default{
-		methods:{
-			prolistban:function(){
-				var WIDTH = 35;
-				var marginLeft = (WIDTH*this.n-4)+"%";
-				console.log(marginLeft);
-				console.log(this.n);
-				$('.banInDiv').css("marginLeft",marginLeft);
-			},
-			prolistbanright:function(){
-				this.n--;
-				this.prolistban();
-			},
-			prolistbanleft:function(){
-				this.n++;
-				this.prolistban();
-			}
-		},
-		data(){
-			return {
-				n : -1,
-				timer : 0
-			}
-		},
+		components:{
+			'Prolist':Prolist
+		}
+	}
+</script>
+<script>
+	export default{
+		
 		mounted(){
 
 		}
