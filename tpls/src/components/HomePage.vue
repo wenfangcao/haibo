@@ -120,6 +120,8 @@
 			}
 		},
 		mounted(){
+			$('html').css("overflow","hidden");
+			$('body').css("overflow","hidden");
 			(()=>{
 				var n = $(".banImgMid").index() ;
 				//轮播图
@@ -179,8 +181,9 @@
 		destroyed(){
 			clearInterval(this.timer);
 			this.timer = null;
+			$('html').css("overflow","visible");
+			$('body').css("overflow","visible");
 		}
-		
 		
 	}
 
@@ -188,4 +191,5 @@
 <style scoped>
 	@import '../assets/css/wheel.css';
 	@import '../assets/css/homePage.less';
+	
 </style>

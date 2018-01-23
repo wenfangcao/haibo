@@ -131,4 +131,5 @@
 </script>
 <style scoped>
 	@import '../assets/css/product.less';
+	
 </style>

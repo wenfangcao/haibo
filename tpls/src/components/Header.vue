@@ -34,7 +34,7 @@
   </div>
 </template>
 
-<style lang="css" scoped>
+<style scoped>
     @import '../assets/css/header.less';
 </style>
 <script>
