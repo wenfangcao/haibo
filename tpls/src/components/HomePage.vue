@@ -120,29 +120,81 @@
 			}
 		},
 		mounted(){
-			$('html').css("overflow","hidden");
 			$('body').css("overflow","hidden");
+			function slip(){
+				var i=0;
+				var $btn = $('.section-btn li'),
+					$wrap = $('.section-wrap'),
+					$arrow = $('.arrow');
+				/*当前页面赋值*/
+				function up(){i++;if(i==$btn.length){i=0};}
+				function down(){i--;if(i<0){i=$btn.length-1};}
+				/*页面滑动*/
+				function run(){
+					$btn.eq(i).addClass('on').siblings().removeClass('on');	
+					$wrap.attr("class","section-wrap").addClass(function() { return "put-section-"+i; }).find('.section').eq(i).find('.title').addClass('active');
+				};
+				/*右侧按钮点击*/
+				$btn.each(function(index) {
+					$(this).click(function(){
+						i=index;
+						run();
+					})
+				});
+				/*翻页按钮点击*/
+				$arrow.one('click',go);
+				function go(){
+					up();run();	
+					setTimeout(function(){$arrow.one('click',go)},1000)
+				};
+				/*响应鼠标*/
+				$wrap.one('mousewheel',mouse_);
+				function mouse_(event){
+					if(event.deltaY<0) {up()}
+					else{down()}
+					run();
+					setTimeout(function(){$wrap.one('mousewheel',mouse_)},1000)
+				};
+				/*响应键盘上下键*/
+				$(document).one('keydown',k);
+				function k(event){
+					var e=event||window.event;
+					var key=e.keyCode||e.which||e.charCode;
+					switch(key)	{
+						case 38: down();run();	
+						break;
+						case 40: up();run();	
+						break;
+					};
+					setTimeout(function(){$(document).one('keydown',k)},1000);
+				}	
+			}
+			slip();
 			(()=>{
 				var n = $(".banImgMid").index() ;
 				//轮播图
 				function ban(){					
-					var imgs = document.querySelectorAll(".bandiv>img");
-					var length = imgs.length-1;
-					if(n<0) n=length;if(n>length) n=0;
-					var m=n-1;if(m<0)m=length;
-					var m1=m-1;if(m1<0)m1=length;
-					var m2=m1-1;if(m2<0)m2=length;
-					var p=n+1;if(p>length)p=0;
-					var p1=p+1;if(p1>length)p1=0;
-					var p2=p1+1;if(p2>length)p2=0;
-					imgs[m].className="banImgPre";
-					imgs[m1].className="banImgPre2";
-					imgs[m2].className="banImgPre3";
-					imgs[n].className="banImgMid";
-					imgs[p].className="banImgNext";
-					imgs[p1].className="banImgNext2";
-					imgs[p2].className="banImgNext3";
-					changeLi();
+					try{
+						console.log(this.timer);
+						var imgs = document.querySelectorAll(".bandiv>img");
+						var length = imgs.length-1;
+						if(n<0) n=length;if(n>length) n=0;
+						var m=n-1;if(m<0)m=length;
+						var m1=m-1;if(m1<0)m1=length;
+						var m2=m1-1;if(m2<0)m2=length;
+						var p=n+1;if(p>length)p=0;
+						var p1=p+1;if(p1>length)p1=0;
+						var p2=p1+1;if(p2>length)p2=0;
+						imgs[m].className="banImgPre";
+						imgs[m1].className="banImgPre2";
+						imgs[m2].className="banImgPre3";
+						imgs[n].className="banImgMid";
+						imgs[p].className="banImgNext";
+						imgs[p1].className="banImgNext2";
+						imgs[p2].className="banImgNext3";
+						changeLi();
+						
+					}catch(err){console.log(err);}
 				}
 				//ban();
 				$(".bandiv>img").click((e)=>{
@@ -181,8 +233,8 @@
 		destroyed(){
 			clearInterval(this.timer);
 			this.timer = null;
-			$('html').css("overflow","visible");
 			$('body').css("overflow","visible");
+			console.log($('body').css("overflow"));
 		}
 		
 	}
