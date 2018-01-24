@@ -11,7 +11,11 @@
 			<div class="row nav-no1">
 				<div class="col-xs-4"><a>首页</a></div>
 				<div class="col-xs-4"><a>产品中心</a></div>
-				<div class="col-xs-4"><a>2017 A/W</a></div>  
+				<div class="col-xs-4">
+					<a v-if="year==0">2018 夏装</a>
+					<a v-if="year==1">2017 冬装</a>
+					<a v-if="year==2">2017 秋装</a>
+				</div>  
 			</div>                                
 		</div>
 		<div class="container margin20 minNav">
@@ -21,9 +25,9 @@
 				</div>
 				<div class="col-xs-6">
 						<div class="row minNavRight">
-							<div class="col-xs-4"><a @click="year = 0">2018 夏装</a></div>
-							<div class="col-xs-4"><a @click="year = 1">2017 冬装</a></div>
-							<div class="col-xs-4"><a @click="year = 2">2017 秋装</a></div>
+							<div class="col-xs-4"><a @click="year = 0" :class="{ho:(year==0)}">2018 夏装</a></div>
+							<div class="col-xs-4"><a @click="year = 1" :class="{ho:(year==1)}">2017 冬装</a></div>
+							<div class="col-xs-4"><a @click="year = 2" :class="{ho:(year==2)}">2017 秋装</a></div>
 						</div>		
 				</div>
 			</div>
