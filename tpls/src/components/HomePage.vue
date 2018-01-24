@@ -175,7 +175,7 @@
 				//轮播图
 				function ban(){					
 					try{
-						console.log(this.timer);
+						//console.log(this.timer);
 						var imgs = document.querySelectorAll(".bandiv>img");
 						var length = imgs.length-1;
 						if(n<0) n=length;if(n>length) n=0;
