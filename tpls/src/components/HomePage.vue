@@ -110,12 +110,19 @@
 			
 		},
 		methods:{
-			beginHover:function (){//鼠标悬停
-						clearInterval(this.timer);
-						this.timer = null;
+			beginHover:function (){
+				//鼠标悬停
+				clearInterval(this.timer);
+				this.timer = null;
 			},
 			endHover:function (){
 				this.timer = setInterval(()=>{this.n++;this.ban();},5000);
+			},
+				//下侧小按钮
+			changeLi(){
+				var lis = document.querySelectorAll(".ulbtn>li");
+				$(".ulbtn>li").removeClass("ulbtncolor");
+				lis[this.n].className="ulbtncolor";
 			},
 			ban:function (){					
 					try{
@@ -135,7 +142,8 @@
 						imgs[this.n].className="banImgMid";
 						imgs[p].className="banImgNext";
 						imgs[p1].className="banImgNext2";
-						imgs[p2].className="banImgNext3";						
+						imgs[p2].className="banImgNext3";	
+						this.changeLi();					
 					}catch(err){console.log(err);}
 			}
 			
@@ -208,12 +216,8 @@
 				//左右按钮
 				$(".preNextBtn1").click(()=>{this.n++; this.ban();});
 				$(".preNextBtn2").click(()=>{this.n--;this.ban();});
-				var lis = document.querySelectorAll(".ulbtn>li");
-				//下侧小按钮
-				function changeLi(){
-					$(".ulbtn>li").removeClass("ulbtncolor");
-					lis[this.n].className="ulbtncolor";
-				}
+				
+			
 				$(".ulbtn>li").click((e)=>{
 					this.n = $(e.target).index();
 					this.ban();
@@ -221,11 +225,10 @@
 				//开启定时器
 				this.timer = setInterval(()=>{this.n++;this.ban();},5000);
 			})()
-			
 		},
 		destroyed(){
 			clearInterval(this.timer);
-			this.timer = null;
+			this.timer = null; 
 			$('body').css("overflow","visible");
 		}
 		

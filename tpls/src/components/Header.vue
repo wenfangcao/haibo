@@ -22,8 +22,8 @@
                 <a @click = "link('product')" data-toggle="dropdown" class="ov">products</a></li>
             <li><a href="#">招聘</a>
                 <a href="">recruit</a></li>
-            <li><a href="#">帮助</a>
-                <a href="">help</a></li>
+            <li><a @click = "link('manage')">帮助</a>
+                <a @click = "link('manage')">help</a></li>
         </ul>
         </div>
     
