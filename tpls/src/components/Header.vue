@@ -3,7 +3,7 @@
     <div class="container">
     <!--第一部分：导航条头部=品牌+汉堡包-->
     <div class="navbar-header">
-        <a @click = "link('homepage')" class="navbar-brand titleFont">Haib</a>
+        <a @click = "link('homepage')" class="navbar-brand titleFont"><img src="../assets/img/logo/2.png" alt=""></a>
         <!--汉堡包菜单默认是隐藏-->
         <a href="#my-menu" data-toggle="collapse" class="navbar-toggle">
             <span class="icon-bar"></span>

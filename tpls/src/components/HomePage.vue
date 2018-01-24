@@ -14,7 +14,7 @@
 				</div>
 			</div>
 			<!--banner图 -->
-			<div class="banner container">
+			<div class="banner container" @mouseenter="beginHover" @mouseleave="endHover">
 				<span class="glyphicon glyphicon-menu-left preNextBtn1"></span>
 				<div class="bandiv">
 					<img src="../assets/img/home/1.jpg" alt="" class="banImgPre3">
@@ -110,13 +110,40 @@
 			
 		},
 		methods:{
-			
+			beginHover:function (){//鼠标悬停
+						clearInterval(this.timer);
+						this.timer = null;
+			},
+			endHover:function (){
+				this.timer = setInterval(()=>{this.n++;this.ban();},5000);
+			},
+			ban:function (){					
+					try{
+						//console.log(this.timer);
+						var imgs = document.querySelectorAll(".bandiv>img");
+						var length = imgs.length-1;
+						if(this.n<0) n=length;if(this.n>length) this.n=0;
+						var m=this.n-1;if(m<0)m=length;
+						var m1=m-1;if(m1<0)m1=length;
+						var m2=m1-1;if(m2<0)m2=length;
+						var p=this.n+1;if(p>length)p=0;
+						var p1=p+1;if(p1>length)p1=0;
+						var p2=p1+1;if(p2>length)p2=0;
+						imgs[m].className="banImgPre";
+						imgs[m1].className="banImgPre2";
+						imgs[m2].className="banImgPre3";
+						imgs[this.n].className="banImgMid";
+						imgs[p].className="banImgNext";
+						imgs[p1].className="banImgNext2";
+						imgs[p2].className="banImgNext3";						
+					}catch(err){console.log(err);}
+			}
 			
 		},
 		data(){
 			return {
-			   timer :""
-				
+			   timer :"",
+			   n : 0	
 			}
 		},
 		mounted(){
@@ -171,62 +198,28 @@
 			}
 			slip();
 			(()=>{
-				var n = $(".banImgMid").index() ;
+				this.n = $(".banImgMid").index() ;
 				//轮播图
-				function ban(){					
-					try{
-						//console.log(this.timer);
-						var imgs = document.querySelectorAll(".bandiv>img");
-						var length = imgs.length-1;
-						if(n<0) n=length;if(n>length) n=0;
-						var m=n-1;if(m<0)m=length;
-						var m1=m-1;if(m1<0)m1=length;
-						var m2=m1-1;if(m2<0)m2=length;
-						var p=n+1;if(p>length)p=0;
-						var p1=p+1;if(p1>length)p1=0;
-						var p2=p1+1;if(p2>length)p2=0;
-						imgs[m].className="banImgPre";
-						imgs[m1].className="banImgPre2";
-						imgs[m2].className="banImgPre3";
-						imgs[n].className="banImgMid";
-						imgs[p].className="banImgNext";
-						imgs[p1].className="banImgNext2";
-						imgs[p2].className="banImgNext3";
-						changeLi();
-						
-					}catch(err){console.log(err);}
-				}
-				//ban();
+				this.ban();
 				$(".bandiv>img").click((e)=>{
-					n = $(e.target).index();
-					ban();
+					this.n = $(e.target).index();
+					this.ban();
 				});
 				//左右按钮
-				$(".preNextBtn1").click(()=>{n++; ban();});
-				$(".preNextBtn2").click(()=>{n--;ban();});
+				$(".preNextBtn1").click(()=>{this.n++; this.ban();});
+				$(".preNextBtn2").click(()=>{this.n--;this.ban();});
 				var lis = document.querySelectorAll(".ulbtn>li");
-				
 				//下侧小按钮
 				function changeLi(){
 					$(".ulbtn>li").removeClass("ulbtncolor");
-					lis[n].className="ulbtncolor";
+					lis[this.n].className="ulbtncolor";
 				}
 				$(".ulbtn>li").click((e)=>{
-					n = $(e.target).index();
-					ban();
+					this.n = $(e.target).index();
+					this.ban();
 				});
 				//开启定时器
-				this.timer = setInterval(()=>{n++;ban();},5000);
-				//鼠标悬停
-				$(".banner").hover(
-					function (){
-						clearInterval(this.timer);
-						this.timer = null;
-					},
-					function (){
-						this.timer = setInterval(()=>{n++;ban();},5000);
-					}
-				);
+				this.timer = setInterval(()=>{this.n++;this.ban();},5000);
 			})()
 			
 		},
@@ -234,7 +227,6 @@
 			clearInterval(this.timer);
 			this.timer = null;
 			$('body').css("overflow","visible");
-			console.log($('body').css("overflow"));
 		}
 		
 	}

@@ -21,101 +21,37 @@
 				</div>
 				<div class="col-xs-6">
 						<div class="row minNavRight">
-							<div class="col-xs-4"><a>2018 夏装</a></div>
-							<div class="col-xs-4"><a>2017 冬装</a></div>
-							<div class="col-xs-4"><a>2017 秋装</a></div>
+							<div class="col-xs-4"><a @click="year = 0">2018 夏装</a></div>
+							<div class="col-xs-4"><a @click="year = 1">2017 冬装</a></div>
+							<div class="col-xs-4"><a @click="year = 2">2017 秋装</a></div>
 						</div>		
 				</div>
 			</div>
 		</div>
-		<Prolist></Prolist>
-		<Prolist></Prolist>
-		
-	<!--	<div class="container proBgc">
-			<div class="row">
-				<div class="col-xs-2 prolistLeft">
-					<p>羽绒服</p>
-					<img src="../assets/img/product/Ts.png" alt="Ts">
-					<b>HAIBO</b>
-				</div>
-				<div class="col-xs-9">
-					<div class="row prolistRight">
-						<div @click="prolistbanleft" class="col-xs-1 prolistBan prolistBan1" v-if="n!=1">&lt;</div>
-							<div class="col-xs-9 banOutDiv">
-								<div class="banInDiv row">
-									<div class="col-xs-2 prolistmidimg">
-										<img src="../assets/img/product/1.jpg" alt="">
-										<div class="phover"></div>
-										<div class="chover">
-											<img src="../assets/img/product/2.png" alt=""><br><br>
-											<span>haibo 羽绒服</span>
-										</div>
-									</div>
-									<div class="col-xs-2 prolistmidimg">
-										<img src="../assets/img/product/2.jpg" alt="">
-										<div class="phover"></div>
-										<div class="chover">
-											<img src="../assets/img/product/2.png" alt=""><br><br>
-											<span>haibo 羽绒服</span>
-										</div>
-									</div>
-									<div class="col-xs-2 prolistmidimg">
-										<img src="../assets/img/product/3.jpg" alt="">
-										<div class="phover"></div>
-										<div class="chover">
-											<img src="../assets/img/product/2.png" alt=""><br><br>
-											<span>haibo 羽绒服</span>
-										</div>	
-									</div>
-									<div class="col-xs-2 prolistmidimg">
-										<img src="../assets/img/product/1.jpg" alt="">
-										<div class="phover"></div>
-										<div class="chover">
-											<img src="../assets/img/product/2.png" alt=""><br><br>
-											<span>haibo 羽绒服</span>
-										</div>	
-									</div>
-									<div class="col-xs-2 prolistmidimg">
-										<img src="../assets/img/product/2.jpg" alt="">
-										<div class="phover"></div>
-										<div class="chover">
-											<img src="../assets/img/product/2.png" alt=""><br><br>
-											<span>haibo 羽绒服</span>
-										</div>	
-									</div>
-									<div class="col-xs-2 prolistmidimg">
-										<img src="../assets/img/product/3.jpg" alt="">
-										<div class="phover"></div>
-										<div class="chover">
-											<img src="../assets/img/product/2.png" alt=""><br><br>
-											<span>haibo 羽绒服</span>
-										</div>	
-									</div>
-								</div>
-								
-							</div>
-						
-						<div @click="prolistbanright" class="col-xs-1 prolistBan prolistBan2" v-if="n!=-4">&gt;</div>
-					</div>
-				</div>
-			</div>
-		</div>-->
-		<Footer></Footer>
+	<Proyear1 v-if="year==0"></Proyear1>
+	<Proyear2 v-if="year==1"></Proyear2>
+	<Proyear3 v-if="year==2"></Proyear3>
+	<Footer></Footer>
   </div>
 </template>
+
 <script>
-	import Prolist from './ProlistComponent'
+	import Proyear1 from './Proyear1'
+	import Proyear2 from './Proyear2'
+	import Proyear3 from './Proyear3'
 	export default{
 		components:{
-			'Prolist':Prolist
-		}
-	}
-</script>
-<script>
-	export default{
-		
+			'Proyear1':Proyear1,
+			'Proyear2':Proyear2,
+			'Proyear3':Proyear3
+		},
 		mounted(){
 
+		},
+		data(){
+			return {
+				year:0
+			}
 		}
 	}
 </script>

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row proBgc">
             <div class="col-xs-2 prolistLeft">
-                <p>羽绒服</p>
+                <p>{{title}}</p>
                 <img src="../assets/img/product/Ts.png" alt="Ts">
                 <b>HAIBO</b>
             </div>
@@ -10,55 +10,16 @@
                 <div class="row prolistRight">
                     <div @click="prolistbanleft" class="col-xs-1 prolistBan prolistBan1" v-if="n!=1">&lt;</div>
                         <div class="col-xs-9 banOutDiv">
-                            <div class="banInDiv row">
-                                <div class="col-xs-2 prolistmidimg">
-                                    <img src="../assets/img/product/1.jpg" alt="">
+                            <div class="banInDiv row" :style="marginLeft">
+                                <div class="col-xs-2 prolistmidimg" v-for="tmp in img">
+                                    <img :src='require("../assets/img/product/"+tmp)' alt="">
                                     <div class="phover"></div>
                                     <div class="chover">
                                         <img src="../assets/img/product/2.png" alt=""><br><br>
                                         <span>haibo 羽绒服</span>
                                     </div>
                                 </div>
-                                <div class="col-xs-2 prolistmidimg">
-                                    <img src="../assets/img/product/2.jpg" alt="">
-                                    <div class="phover"></div>
-                                    <div class="chover">
-                                        <img src="../assets/img/product/2.png" alt=""><br><br>
-                                        <span>haibo 羽绒服</span>
-                                    </div>
-                                </div>
-                                <div class="col-xs-2 prolistmidimg">
-                                    <img src="../assets/img/product/3.jpg" alt="">
-                                    <div class="phover"></div>
-                                    <div class="chover">
-                                        <img src="../assets/img/product/2.png" alt=""><br><br>
-                                        <span>haibo 羽绒服</span>
-                                    </div>	
-                                </div>
-                                <div class="col-xs-2 prolistmidimg">
-                                    <img src="../assets/img/product/1.jpg" alt="">
-                                    <div class="phover"></div>
-                                    <div class="chover">
-                                        <img src="../assets/img/product/2.png" alt=""><br><br>
-                                        <span>haibo 羽绒服</span>
-                                    </div>	
-                                </div>
-                                <div class="col-xs-2 prolistmidimg">
-                                    <img src="../assets/img/product/2.jpg" alt="">
-                                    <div class="phover"></div>
-                                    <div class="chover">
-                                        <img src="../assets/img/product/2.png" alt=""><br><br>
-                                        <span>haibo 羽绒服</span>
-                                    </div>	
-                                </div>
-                                <div class="col-xs-2 prolistmidimg">
-                                    <img src="../assets/img/product/3.jpg" alt="">
-                                    <div class="phover"></div>
-                                    <div class="chover">
-                                        <img src="../assets/img/product/2.png" alt=""><br><br>
-                                        <span>haibo 羽绒服</span>
-                                    </div>	
-                                </div>
+                               
                             </div>
                             
                         </div>
@@ -72,11 +33,14 @@
 </template>
 <script>
     export  default{
+        props:['img','title'],
         methods:{
+           
             prolistban:function(){
 				var WIDTH = 35;
 				var marginLeft = (WIDTH*this.n-4)+"%";
-				$('.banInDiv').css("marginLeft",marginLeft);
+				this.marginLeft="margin-left:"+marginLeft;
+                //$('.banInDiv').css("marginLeft",marginLeft);//....hahaha
 			},
 			prolistbanright:function(){
 				this.n--;
@@ -90,7 +54,7 @@
 		data(){
 			return {
 				n : -1,
-				timer : 0
+				marginLeft: "-4%"
 			}
 		}
     }
