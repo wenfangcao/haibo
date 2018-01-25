@@ -16,11 +16,11 @@
         <ul class="nav navbar-nav">
             <li><a @click = "link('homepage')">首页</a>
                 <a @click = "link('homepage')">index</a></li>
-            <li><a @click = "link('history')">品牌历史</a>
-                <a @click = "link('history')">history</a></li>
-            <li><a @click = "link('product')" data-toggle="dropdown" class="ov">产品大全</a>
-                <a @click = "link('product')" data-toggle="dropdown" class="ov">products</a></li>
-            <li><a href="#">招聘</a>
+            <li><a @click = "link('product')">产品中心</a>
+                <a @click = "link('product')">products</a></li>
+            <li><a @click = "link('history')">品牌文化</a>
+                <a @click = "link('history')">culture</a></li>  
+            <li><a href="#">招聘资讯</a>
                 <a href="">recruit</a></li>
             <li><a @click = "link('manage')">帮助</a>
                 <a @click = "link('manage')">help</a></li>

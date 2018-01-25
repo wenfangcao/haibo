@@ -29,9 +29,5 @@ html,body{
 .put-section-3{ transform:translateY(-300%);-webkit-transform:translateY(-300%);}
 .put-section-4{ transform:translateY(-400%);-webkit-transform:translateY(-400%);}
 .section-btn{ width:14px;position:fixed;right:4%;top:50%;}
-.section-btn li{ width:14px;height:14px;cursor:pointer;text-indent:-9999px;border-radius:50%;-webkit-border-radius:50%;margin-bottom:12px; background:#BD362F;text-align:center; color:#fff; onsor:pointer;}
-.section-btn li.on{ background:#fff}
-.arrow{ opacity:1;animation:arrow 3s cubic-bezier(0.5,0,0.1,1) infinite;-webkit-animation:arrow 3s cubic-bezier(0.5,0,0.1,1) infinite;transform:rotate(-90deg);-webkit-transform:rotate(-90deg); position:absolute;bottom:10px;left:50%;margin-left:-30px;width:60px;height:60px;border-radius:100%;-webkit-border-radius:100%;line-height:60px;text-align:center;font-size:20px;color:black;border:1px solid black;cursor:pointer;overflow:hidden;}
-.arrow:hover{ animation-play-state:paused;-webkit-animation-play-state:paused;}
-@keyframes arrow{ %0,%100{bottom:10px; opacity:1;} 50%{bottom:50px; opacity:.5} }
-@-webkit-keyframes arrow{ %0,%100{bottom:10px; opacity:1;} 50%{bottom:50px; opacity:.5} }
+.section-btn li{ width:14px;height:14px;cursor:pointer;text-indent:-9999px;border-radius:50%;-webkit-border-radius:50%;margin-bottom:12px; background:rgb(178, 159, 231);text-align:center; ; onsor:pointer;}
+.section-btn li.on{ background:rgb(110,255,219)}
