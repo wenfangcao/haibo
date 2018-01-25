@@ -20,23 +20,98 @@
 	<div class="section section-2">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-6">
-					<div class="sec2LeftDiv">
+				<div class="col-xs-6 sec2leftOutDiv">
+					<div class="sec2LeftDiv text-center">
 						<div>
 							<h6>DEAL OF THE DAY</h6>
 							<h3>OSAMA LEATHER BAG</h3>
 							<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, autem eveniet? Voluptatum, cupiditate amet maxime in hic quos autem eveniet voluptatibus voluptatem asperiores exercitationem odit quibusdam voluptas animi ipsam atque.</span>
 							<p>
-								<b>$330</b>
-								<span >$750</span>
+								<span class="font-NowPrice">$330</span>
+								<span class="font-PrePrice">&nbsp;$750&nbsp;  </span>
 							</p>
-							
+							<ul>
+								<li class="pull-left text-center">
+									<span>00</span><br>
+									<span>DAYS</span>
+								</li>
+								<li class="pull-left text-center">
+									<span>00</span><br>
+									<span>HOURS</span>
+								</li>
+								<li class="pull-left text-center">
+									<span>00</span><br>
+									<span>MINS</span>
+								</li>
+								<li class="pull-left text-center">
+									<span>00</span><br>
+									<span>SECS</span>
+								</li>
+							</ul>
 						</div>
-						<div></div>
-						<div></div>
+						<div>
+							<h6>DEAL OF THE DAY</h6>
+							<h3>OSAMA LEATHER BAG</h3>
+							<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, autem eveniet? Voluptatum, cupiditate amet maxime in hic quos autem eveniet voluptatibus voluptatem asperiores exercitationem odit quibusdam voluptas animi ipsam atque.</span>
+							<p>
+								<span class="font-NowPrice">$330</span>
+								<span class="font-PrePrice">&nbsp;$750&nbsp;  </span>
+							</p>
+							<ul>
+								<li class="pull-left text-center">
+									<span>00</span><br>
+									<span>DAYS</span>
+								</li>
+								<li class="pull-left text-center">
+									<span>00</span><br>
+									<span>HOURS</span>
+								</li>
+								<li class="pull-left text-center">
+									<span>00</span><br>
+									<span>MINS</span>
+								</li>
+								<li class="pull-left text-center">
+									<span>00</span><br>
+									<span>SECS</span>
+								</li>
+							</ul>
+						</div>
+						<div>
+							<h6>DEAL OF THE DAY</h6>
+							<h3>OSAMA LEATHER BAG</h3>
+							<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, autem eveniet? Voluptatum, cupiditate amet maxime in hic quos autem eveniet voluptatibus voluptatem asperiores exercitationem odit quibusdam voluptas animi ipsam atque.</span>
+							<p>
+								<span class="font-NowPrice">$330</span>
+								<span class="font-PrePrice">&nbsp;$750&nbsp;  </span>
+							</p>
+							<ul>
+								<li class="pull-left text-center">
+									<span>00</span><br>
+									<span>DAYS</span>
+								</li>
+								<li class="pull-left text-center">
+									<span>00</span><br>
+									<span>HOURS</span>
+								</li>
+								<li class="pull-left text-center">
+									<span>00</span><br>
+									<span>MINS</span>
+								</li>
+								<li class="pull-left text-center">
+									<span>00</span><br>
+									<span>SECS</span>
+								</li>
+							</ul>
+						</div>
+					</div>	
+				</div>
+				<div class="col-xs-6">
+					<div class="sec2RightDiv">
+						<div><img src="../assets/img/home/101.jpg" alt=""></div>
+						<div><img src="../assets/img/home/102.jpg" alt=""></div>
+						<div><img src="../assets/img/home/103.jpg" alt=""></div>
 					</div>
 				</div>
-				<div class="col-xs-6"></div>
 			</div>
 		</div>
 	</div>
