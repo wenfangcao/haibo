@@ -57,8 +57,50 @@
 		</div>
 	</div>
 	<div class="section section-4">
-		<div class="title">
-			<p class="tit">随便写写意思下</p>
+		<div class="container">
+			<div class="row text-center">
+				<h2 class="col-xs-12 ">Brand</h2>
+				<h3 class="col-xs-12">品牌文化</h3>
+				<span class="col-sm-12 hidden-xs titleDetails">为注重着装品味与品质的成功男士提供彰显内涵和个性的时尚男装系列产品</span>
+			</div>
+
+			<div class="container margin40">
+				<div class="row barandimglist">
+					<div class="col-xs-4">
+						<img src="../assets/img/home/10.jpg" alt="">
+						<a>
+							<div>
+								<h1>|</h1>
+								<p>ABOUT</p>
+								<span>公司介绍</span>
+								<h1>|</h1>
+							</div>
+						</a>
+					</div>
+					<div class="col-xs-4">
+						<img src="../assets/img/home/11.jpg" alt="">
+						<a>
+							<div>
+								<h1>|</h1>
+								<p>CULTURE</p>
+								<span>品牌文化</span>
+								<h1>|</h1>
+							</div>
+						</a>
+					</div>
+					<div class="col-xs-4">
+						<img src="../assets/img/home/12.jpg" alt="">
+						<a>
+							<div>
+								<h1>|</h1>
+								<p>RECRUIT</p>
+								<span>礼贤下士</span>
+								<h1>|</h1>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="section section-5">
