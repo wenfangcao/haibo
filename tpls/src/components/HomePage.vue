@@ -21,8 +21,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-6 sec2leftOutDiv">
-					<div class="sec2LeftDiv text-center">
-						<div>
+					<div class="sec2LeftDiv text-center" >
+						<div draggable="true" :style="{left:sec0+'px'}" @mousemove="LeftMoveing(0)" @mousedown="LeftCanMoveStart">
 							<h6>DEAL OF THE DAY</h6>
 							<h3>OSAMA LEATHER BAG</h3>
 							<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, autem eveniet? Voluptatum, cupiditate amet maxime in hic quos autem eveniet voluptatibus voluptatem asperiores exercitationem odit quibusdam voluptas animi ipsam atque.</span>
@@ -49,7 +49,7 @@
 								</li>
 							</ul>
 						</div>
-						<div>
+						<div :style="{left:sec1+'px'}" @mousemove="LeftMoveing(1)">
 							<h6>DEAL OF THE DAY</h6>
 							<h3>OSAMA LEATHER BAG</h3>
 							<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, autem eveniet? Voluptatum, cupiditate amet maxime in hic quos autem eveniet voluptatibus voluptatem asperiores exercitationem odit quibusdam voluptas animi ipsam atque.</span>
@@ -76,7 +76,7 @@
 								</li>
 							</ul>
 						</div>
-						<div>
+						<div :style="{left:sec2+'px'}" @mousemove="LeftMoveing(2)">
 							<h6>DEAL OF THE DAY</h6>
 							<h3>OSAMA LEATHER BAG</h3>
 							<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, autem eveniet? Voluptatum, cupiditate amet maxime in hic quos autem eveniet voluptatibus voluptatem asperiores exercitationem odit quibusdam voluptas animi ipsam atque.</span>
@@ -303,6 +303,29 @@
 				setTimeout(()=>{
 					e.target.style.bottom="0px";
 				},700);
+			},
+			LeftMoveing(e){
+			//	if(this.canMove){
+					var b = eval("sec"+""+e);
+					var x = e.screenX ; 
+					var y = e.screenY ;
+				//	console.dir(this.b);
+				//	var move = x-this.startMoveX;
+				//	var a = this.b+move;
+				//	this.b = a ;
+				//	console.log(this.b);
+			//	Object sec0 = Class.forName(b).newInstance(); 	
+				
+		
+			},
+			LeftCanMoveStart(e){
+				this.canMove = true ;
+				this.startMoveX = e.screenX;
+				this.startMoveY = e.screenY;
+				
+			},
+			LeftCanMoveEnd(){
+				this.canMove = false ;
 			}
 			
 		},
@@ -310,7 +333,13 @@
 			return {
 			   timer :"",
 			   n : 0	,
-			   detailWord:['为','注','重','着','装','品','味','与','品','质','的','成','功','男','士','提','供','彰','显','内','涵','和','个','性','的','时','尚','男','装','系','列','产','品']
+			   detailWord:['为','注','重','着','装','品','味','与','品','质','的','成','功','男','士','提','供','彰','显','内','涵','和','个','性','的','时','尚','男','装','系','列','产','品'],
+			   sec0: 0 ,
+			   sec1:500 ,
+			   sec2:999,
+			   camMove : false ,
+			   startMoveX : 0 ,
+			   startMoveY : 0 
 			}
 		},
 		mounted(){
