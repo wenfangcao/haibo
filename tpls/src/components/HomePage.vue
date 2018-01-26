@@ -6,9 +6,9 @@
 		<div class="container">
 			<div class="row cleartable">
 				<div class="col-xs-6 leftDiv">
-					<div class="h2">SAVE UP TO 20%</div>
-					<div class="h1">新 品 上 市 </div>
-					<div class="details">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio impedit ipsum labore in unde officiis omnis quis repellendus illum optio dicta velit, quia, ullam laudantium laboriosam animi, consequuntur ex. Adipisci.</div>
+					<div class="h2 secA">SAVE UP TO 20%</div>
+					<div class="h1 secA">新 品 上 市 </div>
+					<div class="details secA">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio impedit ipsum labore in unde officiis omnis quis repellendus illum optio dicta velit, quia, ullam laudantium laboriosam animi, consequuntur ex. Adipisci.</div>
 					<button class="btnshop">SHOP NOW</button>
 				</div>
 				<div class="col-xs-6 rightDiv">
@@ -22,7 +22,7 @@
 			<div class="row">
 				<div class="col-xs-6 sec2leftOutDiv">
 					<div class="sec2LeftDiv text-center" >
-						<div draggable="true" :style="{left:sec0+'px'}" @mousemove="LeftMoveing(0)" @mousedown="LeftCanMoveStart">
+						<div v-drag>
 							<h6>DEAL OF THE DAY</h6>
 							<h3>OSAMA LEATHER BAG</h3>
 							<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, autem eveniet? Voluptatum, cupiditate amet maxime in hic quos autem eveniet voluptatibus voluptatem asperiores exercitationem odit quibusdam voluptas animi ipsam atque.</span>
@@ -49,7 +49,7 @@
 								</li>
 							</ul>
 						</div>
-						<div :style="{left:sec1+'px'}" @mousemove="LeftMoveing(1)">
+						<div v-drag >
 							<h6>DEAL OF THE DAY</h6>
 							<h3>OSAMA LEATHER BAG</h3>
 							<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, autem eveniet? Voluptatum, cupiditate amet maxime in hic quos autem eveniet voluptatibus voluptatem asperiores exercitationem odit quibusdam voluptas animi ipsam atque.</span>
@@ -76,7 +76,7 @@
 								</li>
 							</ul>
 						</div>
-						<div :style="{left:sec2+'px'}" @mousemove="LeftMoveing(2)">
+						<div v-drag >
 							<h6>DEAL OF THE DAY</h6>
 							<h3>OSAMA LEATHER BAG</h3>
 							<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, autem eveniet? Voluptatum, cupiditate amet maxime in hic quos autem eveniet voluptatibus voluptatem asperiores exercitationem odit quibusdam voluptas animi ipsam atque.</span>
@@ -257,9 +257,26 @@
 <script>
 	import '../assets/js/jquery-3.2.1.js'
 	import '../assets/js/homePage.js'
+	import Vue from 'Vue'
+	
+	
 	export default{
-		components:{
-			
+		directives:{
+		  drag(e){
+            e.onmousedown = function(ev){
+                ev =ev ||event;
+                var oLeft = e.offsetLeft;
+                var a =ev.clientX-oLeft;
+                e.onmousemove =function (ev){
+                    ev = ev || event;
+                    e.style.left =ev.clientX-a+'px';
+                }
+            }    
+            
+            document.onmouseup =function(){
+                e.onmousemove = null ;
+            }
+	      }
 		},
 		methods:{
 			beginHover:function (){
@@ -303,30 +320,8 @@
 				setTimeout(()=>{
 					e.target.style.bottom="0px";
 				},700);
-			},
-			LeftMoveing(e){
-			//	if(this.canMove){
-					var b = eval("sec"+""+e);
-					var x = e.screenX ; 
-					var y = e.screenY ;
-				//	console.dir(this.b);
-				//	var move = x-this.startMoveX;
-				//	var a = this.b+move;
-				//	this.b = a ;
-				//	console.log(this.b);
-			//	Object sec0 = Class.forName(b).newInstance(); 	
-				
-		
-			},
-			LeftCanMoveStart(e){
-				this.canMove = true ;
-				this.startMoveX = e.screenX;
-				this.startMoveY = e.screenY;
-				
-			},
-			LeftCanMoveEnd(){
-				this.canMove = false ;
 			}
+			
 			
 		},
 		data(){
@@ -334,10 +329,8 @@
 			   timer :"",
 			   n : 0	,
 			   detailWord:['为','注','重','着','装','品','味','与','品','质','的','成','功','男','士','提','供','彰','显','内','涵','和','个','性','的','时','尚','男','装','系','列','产','品'],
-			   sec0: 0 ,
-			   sec1:500 ,
-			   sec2:999,
 			   camMove : false ,
+			   canMoveList:[0,500,999],
 			   startMoveX : 0 ,
 			   startMoveY : 0 
 			}
@@ -356,6 +349,16 @@
 						$nav.css("marginTop",'0');
 					},400);
 				}
+				/*section 动画*/
+				function section(){
+					$('.outdiv .section-1 .leftDiv .secA').css("left",'-1500px');
+					if(i==0){
+						setTimeout(()=>{
+							$('.outdiv .section-1 .leftDiv .secA').css("left",'0px');
+						},300);
+					}
+
+				}
 				/*当前页面赋值*/
 				function up(){i++;if(i==$btn.length){i=0};}
 				function down(){i--;if(i<0){i=$btn.length-1};}
@@ -364,6 +367,7 @@
 					$btn.eq(i).addClass('on').siblings().removeClass('on');	
 					$wrap.attr("class","section-wrap").addClass(function() { return "put-section-"+i; }).find('.section').eq(i).find('.title').addClass('active');
 					nav();
+					section();
 				};
 				/*右侧按钮点击*/
 				$btn.each(function(index) {
