@@ -18,20 +18,25 @@ body{
 .outdiv .section-1 .rightDiv{
 	margin-top:15%;
 }
-.outdiv .section-1 .secA{
+.outdiv .section-1 .sec1A{
 	position:relative;
 	left:-1500px;
+	opacity:0;
 }
 .outdiv .section-1 .leftDiv .h2{
-	transition:all .5s .2s;
-
+	transition:all .5s ease-out .2s;
 }
+
 .outdiv .section-1 .leftDiv .h1{
 	font-size:4em;
-	transition:all .5s .5s;
+	transition:all .5s ease-out .5s;
 }
 .outdiv .section-1 .leftDiv .details{
-	transition:all .5s 1s;
+	transition:all .5s ease-out 1s;
+}
+.outdiv .section-1 .leftDiv .sec1AA{
+	left:0px;
+	opacity:1;
 }
 .outdiv .wordhover{
 	position: relative;;
@@ -47,7 +52,7 @@ body{
 	position:relative;
 	overflow: hidden;
 	z-index:1;
-	
+	transition:opacity 1s 2s;
 }
 .outdiv .btnshop:hover{
 	color:#31DDB6;
@@ -247,6 +252,42 @@ body{
 }
 .section-2 .sec2RightDiv>div{
 	position:absolute;	
+}
+.section-3 .sec3A{
+	position:relative;
+	top:-500px;
+}
+.section-3 .h2{
+	position:relative;
+	top:-500px;
+	opacity:0;
+}
+.section-3 .h2.animation{
+	animation:sec3Title 1.5s ease-in 1.7s;
+	top:0px !important;
+	animation-fill-mode: forwards;
+}
+@keyframes sec3Title{
+	0%{opacity:0;top:-500px;}
+	20%{top:-100px;transform:rotate3d(0,0,1,30deg)}
+	40%{top:-100px;transform:rotate3d(0,0,1,30deg)}
+	55%{top:-100px;transform:rotate3d(0,0,1,0deg)}
+	65%{top:0px;transform:rotate3d(0,0,1,20deg)}
+	75%{top:0px;transform:rotate3d(0,0,1,-10deg)}
+	83%{top:0px;transform:rotate3d(0,0,1,9deg)}
+	90%{top:0px;transform:rotate3d(0,0,1,-6deg)}
+	95%{top:0px;transform:rotate3d(0,0,1,3deg)}
+	98%{top:0px;transform:rotate3d(0,0,1,-2deg)}
+	100%{opacity:1;top:0px;transform:rotate3d(0,0,1,0deg)}
+}
+.section-3 h3.sec3A{
+	transition:all .5s ease-in-out 1s;
+}
+.section-3 .sec3A.titleDetails{
+	transition:all .5s ease-in-out .5s;
+}
+.section-3 .sec3AA{
+	top:0px;	
 }
 .section-4 .barandimglist{
 	border:1px solid black;

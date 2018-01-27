@@ -6,10 +6,10 @@
 		<div class="container">
 			<div class="row cleartable">
 				<div class="col-xs-6 leftDiv">
-					<div class="h2 secA">SAVE UP TO 20%</div>
-					<div class="h1 secA">新 品 上 市 </div>
-					<div class="details secA">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio impedit ipsum labore in unde officiis omnis quis repellendus illum optio dicta velit, quia, ullam laudantium laboriosam animi, consequuntur ex. Adipisci.</div>
-					<button class="btnshop">SHOP NOW</button>
+					<div class="h2 sec1A">SAVE UP TO 20%</div>
+					<div class="h1 sec1A">新 品 上 市 </div>
+					<div class="details sec1A">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio impedit ipsum labore in unde officiis omnis quis repellendus illum optio dicta velit, quia, ullam laudantium laboriosam animi, consequuntur ex. Adipisci.</div>
+					<button class="btnshop sec1A">SHOP NOW</button>
 				</div>
 				<div class="col-xs-6 rightDiv">
 					<img src="../assets/img/home/sec2.jpg" alt="">
@@ -121,9 +121,9 @@
 						Newly Launched Products 新品上市
 						Hot Products 产品热销 -->
 				<div class="row">
-					<h2 class="col-xs-12">RECOMMENDED</h2> 
-					<h3 class="col-xs-12">推荐产品</h3>
-					<div class="col-sm-12 hidden-xs titleDetails">
+					<h2 class="col-xs-12 h2">RECOMMENDED</h2> 
+					<h3 class="col-xs-12 sec3A">推荐产品</h3>
+					<div class="col-sm-12 hidden-xs titleDetails sec3A">
 						<span v-for='tmp in detailWord' @mouseover="wordhov" class="wordhover">{{tmp}}</span>
 						
 					</div>
@@ -336,6 +336,7 @@
 			}
 		},
 		mounted(){
+			var thisComponent = this;
 			$('body').css("overflow","hidden");
 			function slip(){
 				var i=0;
@@ -351,14 +352,35 @@
 				}
 				/*section 动画*/
 				function section(){
-					$('.outdiv .section-1 .leftDiv .secA').css("left",'-1500px');
+					$('.outdiv .section-1 .leftDiv .sec1A').removeClass("sec1AA");
+					$('.outdiv .sec3A').removeClass("sec3AA");
+					$('.outdiv .section-3 .h2').removeClass('animation');
 					if(i==0){
 						setTimeout(()=>{
-							$('.outdiv .section-1 .leftDiv .secA').css("left",'0px');
+							$('.outdiv .section-1 .leftDiv  .sec1A').addClass("sec1AA");
 						},300);
+					}else if(i==2){
+						$('.outdiv .section-3 .h2').addClass('animation');
+						var timerSec3 = setInterval(()=>{	
+							$(".outdiv .banner img").css("transition","all .3s ease-in-out");
+							thisComponent.n--;
+							thisComponent.ban();
+						},100);
+						setTimeout(()=>{
+							$('.outdiv .sec3A').addClass("sec3AA");	
+							
+						},300);
+						setTimeout(()=>{
+							clearInterval(timerSec3);
+							$(".outdiv .banner img").css("transition","all .6s ease-in-out");
+						},1500);
+					}else if(i==3){
+						
 					}
 
+
 				}
+				section();
 				/*当前页面赋值*/
 				function up(){i++;if(i==$btn.length){i=0};}
 				function down(){i--;if(i<0){i=$btn.length-1};}
