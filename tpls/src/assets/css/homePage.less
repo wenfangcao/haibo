@@ -290,7 +290,11 @@ body{
 	top:0px;	
 }
 .section-4 .barandimglist{
-	border:1px solid black;
+	border:1px solid transparent;
+}
+.section-4 .barandimglist.bord{
+	border:1px solid black !important;
+	transition: all .5s 1.3s;
 }
 .section-4 .barandimglist>div{
 	padding:0;
@@ -321,6 +325,34 @@ body{
 .section-4 .margin40{
 	margin-top:5%;
 }
+.section-4 .ani{
+	transition:all .1s .5s;
+	position:relative !important;
+	top:200px;
+	opacity:0;
+}
+.section-4 .anima{
+	opacity:1 !important;
+	top:0 !important;
+}
+.section-4 h2{
+	transition:all .5s .4s !important;
+}
+.section-4 h3{
+	transition:all .5s .5s !important;
+}
+.section-4 .titleDetails{
+	transition:all .5s .6s;
+}
+.section-4 .barandimglist>div.d1{
+	transition:all .5s .6s !important;
+}
+.section-4 .barandimglist>div.d2{
+	transition:all .5s .8s !important;
+}
+.section-4 .barandimglist>div.d3{
+	transition:all .5s 1s !important;
+}
 .section-5 .NewsH3Title::after{
 	content:'';
 	display:block;
@@ -339,7 +371,20 @@ body{
 	border:1px solid #E1E1E1;
 	
 }
-
+.section-5 .animation5{
+	transform-style: preserve-3d;
+	transform:perspective(600px)
+				rotatex(40deg) 
+				scale(1.2);
+	transform-origin: 50% 0;
+	transition:all .1s 1s;
+}
+.section-5 .animation5.section5Animation{
+	transform:	perspective(600px)
+				rotatex(0deg)
+				scale(1) !important;
+	transition:all 1.5s ease-in-out 1s;
+}
 @media screen and (max-width:767px){
 	.outdiv .banImgPre{
 		display:none;

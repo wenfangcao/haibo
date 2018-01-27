@@ -157,9 +157,9 @@
 	<div class="section section-4">
 		<div class="container">
 			<div class="row text-center">
-				<h2 class="col-xs-12 ">Brand</h2>
-				<h3 class="col-xs-12">品牌文化</h3>
-				<div class="col-sm-12 hidden-xs titleDetails">
+				<h2 class="col-xs-12 ani anima">Brand</h2>
+				<h3 class="col-xs-12 ani anima">品牌文化</h3>
+				<div class="col-sm-12 hidden-xs titleDetails ani anima">
 						<span v-for='tmp in detailWord' @mouseover="wordhov" class="wordhover">{{tmp}}</span>
 						
 					</div>
@@ -167,7 +167,7 @@
 
 			<div class="container margin40">
 				<div class="row barandimglist">
-					<div class="col-sm-4 col-xs-6">
+					<div class="col-sm-4 col-xs-6 d1 ani anima">
 						<img src="../assets/img/home/10.jpg" alt="">
 						<a>
 							<div>
@@ -178,7 +178,7 @@
 							</div>
 						</a>
 					</div>
-					<div class="col-sm-4  col-xs-6">
+					<div class="col-sm-4  col-xs-6 d2 ani anima">
 						<img src="../assets/img/home/11.jpg" alt="">
 						<a>
 							<div>
@@ -189,7 +189,7 @@
 							</div>
 						</a>
 					</div>
-					<div class="col-sm-4  hidden-xs">
+					<div class="col-sm-4  hidden-xs d3 ani anima">
 						<img src="../assets/img/home/12.jpg" alt="">
 						<a>
 							<div>
@@ -205,7 +205,7 @@
 		</div>
 	</div>
 	<div class="section section-5">
-		<div class="container text-center">
+		<div class="container text-center animation5">
 				<!--
 						Recommended Commodities 推荐商品
 						Newly Launched Products 新品上市
@@ -355,6 +355,9 @@
 					$('.outdiv .section-1 .leftDiv .sec1A').removeClass("sec1AA");
 					$('.outdiv .sec3A').removeClass("sec3AA");
 					$('.outdiv .section-3 .h2').removeClass('animation');
+					$('.outdiv .section-4 .ani').removeClass('anima');
+					$('.outdiv .section-4 .barandimglist').removeClass('bord');
+					$('.outdiv .section-5 .animation5').removeClass("section5Animation");
 					if(i==0){
 						setTimeout(()=>{
 							$('.outdiv .section-1 .leftDiv  .sec1A').addClass("sec1AA");
@@ -373,9 +376,12 @@
 						setTimeout(()=>{
 							clearInterval(timerSec3);
 							$(".outdiv .banner img").css("transition","all .6s ease-in-out");
-						},1500);
+						},1200);
 					}else if(i==3){
-						
+						$('.outdiv .section-4 .ani').addClass('anima');
+						$('.outdiv .section-4 .barandimglist').addClass('bord');
+					}else if(i==4){
+						$('.section-5 .animation5').addClass("section5Animation");
 					}
 
 
