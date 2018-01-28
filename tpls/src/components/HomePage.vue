@@ -20,9 +20,9 @@
 	<div class="section section-2">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-6 sec2leftOutDiv">
+				<div class="col-xs-6 sec2leftOutDiv"   @mousedown="kdown" @mousemove="kmove">
 					<div class="sec2LeftDiv text-center" >
-						<div v-drag>
+						<div :style = "'left:'+canMoveList[0]+'px'">
 							<h6>DEAL OF THE DAY</h6>
 							<h3>OSAMA LEATHER BAG</h3>
 							<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, autem eveniet? Voluptatum, cupiditate amet maxime in hic quos autem eveniet voluptatibus voluptatem asperiores exercitationem odit quibusdam voluptas animi ipsam atque.</span>
@@ -49,7 +49,7 @@
 								</li>
 							</ul>
 						</div>
-						<div v-drag >
+						<div :style = "'left:'+canMoveList[1]+'px'" >
 							<h6>DEAL OF THE DAY</h6>
 							<h3>OSAMA LEATHER BAG</h3>
 							<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, autem eveniet? Voluptatum, cupiditate amet maxime in hic quos autem eveniet voluptatibus voluptatem asperiores exercitationem odit quibusdam voluptas animi ipsam atque.</span>
@@ -76,7 +76,7 @@
 								</li>
 							</ul>
 						</div>
-						<div v-drag >
+						<div :style = "'left:'+canMoveList[2]+'px'" >
 							<h6>DEAL OF THE DAY</h6>
 							<h3>OSAMA LEATHER BAG</h3>
 							<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, autem eveniet? Voluptatum, cupiditate amet maxime in hic quos autem eveniet voluptatibus voluptatem asperiores exercitationem odit quibusdam voluptas animi ipsam atque.</span>
@@ -260,24 +260,19 @@
 	import Vue from 'Vue'
 	
 	
+	
 	export default{
-		directives:{
-		  drag(e){
-            e.onmousedown = function(ev){
-                ev =ev ||event;
-                var oLeft = e.offsetLeft;
-                var a =ev.clientX-oLeft;
-                e.onmousemove =function (ev){
-                    ev = ev || event;
-                    e.style.left =ev.clientX-a+'px';
-                }
-            }    
-            
-            document.onmouseup =function(){
-                e.onmousemove = null ;
-            }
-	      }
-		},
+		data(){
+			return {
+			   timer :"",
+			   n : 0	,
+			   detailWord:['为','注','重','着','装','品','味','与','品','质','的','成','功','男','士','提','供','彰','显','内','涵','和','个','性','的','时','尚','男','装','系','列','产','品'],
+			   camMove : false ,
+			   canMoveList:[0,500,1000],
+			   startMoveX : 0 ,
+			   timer : ""
+			}
+		},    
 		methods:{
 			beginHover:function (){
 				//鼠标悬停
@@ -320,21 +315,90 @@
 				setTimeout(()=>{
 					e.target.style.bottom="0px";
 				},700);
+			},
+			kset(p){
+				function rand(k){
+					if(k<-500) k += 1500 ;
+					if(k>1000) k -= 1500 ;
+					return k;
+				};
+				Vue.set(this.canMoveList,0,rand(p-500));
+				Vue.set(this.canMoveList,1,rand(p));
+				Vue.set(this.canMoveList,2,rand(p+500));
+			},
+			kdown(e){
+				if(this.timer){
+					clearInterval(this.timer);
+					this.timer = null;
+				}
+				this.canMove = true ;
+				document.onmouseup=()=>{
+					var p = this;
+					this.canMove = false;
+					var mid = this.canMoveList[1];//-500  0   500   1000
+					var a1 = mid - (-250);
+					var a2 = mid - 250;
+					var a3 = mid - 750;
+					function reset(i,target){
+						p.timer = setInterval(()=>{
+							if(i){mid++;}else{mid--;}
+							p.kset(mid);
+							if(mid == target) {
+								clearInterval(p.timer);
+								p.timer = null;
+							}
+						},10);
+					}
+					if(a1>a2 && a1>a3){
+						if(a1>0){
+							reset(1,0);
+						}else{
+							reset(0,-500);
+						}
+						
+					}
+					  
+					if(a2>a1 && a2>a3){
+						if(a2>0){
+							reset(1,500);
+						}else{
+							reset(0,0);
+						}
+						
+					}
+					
+					if(a3>a2 && a3>a1) {
+						if(a3>0){
+							reset(1,1000);
+						}else{
+							reset(0,500);
+						}
+						
+					}
+				}
+				e =e ||event;
+				this.oLeft = e.screenX;
+				//console.log(this.oLeft);
+			},
+			kmove(e){
+				if(this.canMove){
+					var Dvalue = 0 ;
+					var p = 0 ;
+					e = e || event;
+					Dvalue = e.screenX - this.oLeft ;
+					this.oLeft = e.screenX;
+					//console.log(Dvalue);
+					if(this.canMoveList){
+						p = (this.canMoveList)[1] + Dvalue ; 
+						this.kset(p);	
+					}	
+					
+				}     
 			}
 			
 			
 		},
-		data(){
-			return {
-			   timer :"",
-			   n : 0	,
-			   detailWord:['为','注','重','着','装','品','味','与','品','质','的','成','功','男','士','提','供','彰','显','内','涵','和','个','性','的','时','尚','男','装','系','列','产','品'],
-			   camMove : false ,
-			   canMoveList:[0,500,999],
-			   startMoveX : 0 ,
-			   startMoveY : 0 
-			}
-		},
+		
 		mounted(){
 			var thisComponent = this;
 			$('body').css("overflow","hidden");
