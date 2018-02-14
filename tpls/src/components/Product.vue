@@ -49,13 +49,16 @@
 			'Proyear2':Proyear2,
 			'Proyear3':Proyear3
 		},
-		mounted(){
-
-		},
 		data(){
 			return {
 				year:0
 			}
+		},
+		created(){
+				this.$axios.get('pr').then((response)=>{
+					console.log(response);
+				});
+				
 		}
 	}
 </script>
