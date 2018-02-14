@@ -17,6 +17,9 @@ body{
 }
 .outdiv .section-1 .rightDiv{
 	margin-top:15%;
+	position:relative;
+	left:2000px;
+	transition:all 1s;
 }
 .outdiv .section-1 .sec1A{
 	position:relative;
@@ -53,6 +56,7 @@ body{
 	overflow: hidden;
 	z-index:1;
 	transition:opacity 1s 2s;
+	outline:none;
 }
 .outdiv .btnshop:hover{
 	color:#31DDB6;
@@ -195,24 +199,38 @@ body{
 } 
 .section-2 .sec2leftOutDiv{
 	width:500px;
-	height:500px;
+	height:650px;
 	overflow: hidden;
 }
 .section-2 .sec2LeftDiv{
-	margin-top:50%;
-	position: relative;;
+	position: relative;
 	width:300%;
+	height:100%;
+	margin:0 auto;
+	margin-top:50%;
 }
+.section-2 .sec2LeftDiv>ol{
+	position:absolute;
+	bottom:50%;
+	left:10%;
+}
+.section-2 .opa{
+	background:#31DDB6 !important;
+}
+.section-2 .sec2LeftDiv>ol>li{
+	border-radius:50%;
+	background:rgba(0,0,0,0.3);
+	width:15px;
+	height:15px;
+	float:left;
+	margin-left:10px;
+	cursor:pointer !important;
+}
+
 .section-2 .sec2LeftDiv>div{
 	width:33.333333%;
 	position:absolute;
-	-moz-user-select: none;
-    -o-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-	cursor: default;
+	
 }
 .section-2 .sec2LeftDiv .font-NowPrice{
 	font-size:3em;
@@ -246,12 +264,55 @@ body{
 }
 .section-2 .sec2RightDiv{
 	width: 500px;
-	height:500px;
+	height:650px;
 	position: relative;
 	padding-top:30%;
+	overflow: hidden;
+	margin-left:10%;
 }
 .section-2 .sec2RightDiv>div{
 	position:absolute;	
+	width:100%;
+	overflow: hidden;
+}
+.section-2 .sec2RightDiv>div:hover:before{
+	top:70%;
+	left:-120%;
+}
+.section-2 .sec2RightDiv>div>img{
+	position:relative;
+	width:100%;
+	transition:all .5s;
+}
+.section-2 .sec2RightDiv>div:hover>img{
+	transform: scale(1.1);
+}
+.section-2 .sec2RightDiv>div:before{
+	content:'';
+	display:block;
+	position:absolute;
+	width:200%;
+	height:100%;
+	top:-70%;
+	left:40%;
+	background-color:rgba(255,255,255,0.5);
+	z-index:1;
+	transform:rotate(45deg);
+	transition:all .5s
+}
+.section-2 .sec2RightDiv>div:hover:after{
+	background:rgba(167,206,235,0.5);
+}
+.section-2 .sec2RightDiv>div:after{
+	content:'';
+	display:block;
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	z-index:2;
+	transition:all .3s .2s;
 }
 .section-3 .sec3A{
 	position:relative;
@@ -385,6 +446,8 @@ body{
 				scale(1) !important;
 	transition:all 1.5s ease-in-out 1s;
 }
+
+
 @media screen and (max-width:767px){
 	.outdiv .banImgPre{
 		display:none;
@@ -414,6 +477,21 @@ body{
 	.barandimglist{
 		font-size:0.5em;
 	}
+	.section-2 .sec2LeftDiv{
+		margin:0 auto !important;
+	}
+	.section-2 .sec2leftOutDiv{
+		height:300px;
+		margin-left:0% !important;
+	}
+	.section-2 .sec2RightDiv{
+		padding-top:0;
+		margin-left:0 !important;
+	}
+	.sec2LeftDiv>ol{
+		bottom:0 !important;
+	}
+	
 	
 }
 @media screen and (min-width:768px) and (max-width:991px){
@@ -442,6 +520,19 @@ body{
 	.outdiv .banner{
 		width:90%;
 	}
+	.section-2 .sec2LeftDiv{
+		margin:0 auto !important;
+	}
+	.section-2 .sec2leftOutDiv{
+		height:300px;
+		margin-left:10% !important;
+	}
+	.section-2 .sec2RightDiv{
+		padding-top:0;
+	}
+	.sec2LeftDiv>ol{
+		bottom:0 !important;
+	}
 }
 @media screen and (min-width:992px) and (max-width:1200px){
 	.outdiv .marginCol>div{
@@ -464,6 +555,13 @@ body{
 		bottom:0;
 		left:40%;
 	}
+	.section-2 .sec2leftOutDiv{
+		width:50%;
+	}
+	.section-2 .sec2RightDiv{
+		width:100%;
+	}
+	
 }
 @media screen and (min-width:1201px){
 	.outdiv .marginCol>div{

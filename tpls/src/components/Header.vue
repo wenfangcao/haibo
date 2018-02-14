@@ -18,12 +18,12 @@
                 <a @click = "link('homepage')">index</a></li>
             <li><a @click = "link('product')">产品中心</a>
                 <a @click = "link('product')">products</a></li>
-            <li><a @click = "link('history')">品牌文化</a>
-                <a @click = "link('history')">culture</a></li>  
-            <li><a href="#">招聘资讯</a>
-                <a href="">recruit</a></li>
+            <li><a @click = "link('CustomTailor')">高端定制</a>
+                <a @click = "link('CustomTailor')">CustomTailor</a></li>  
+            <li><a @click = "link('recruit')">企业文化</a>
+                <a @click = "link('recruit')">culture</a></li>
             <li><a @click = "link('manage')">帮助</a>
-                <a @click = "link('manage')">help</a></li>
+                <a @click = "link('manage')">manage</a></li>
         </ul>
         </div>
     

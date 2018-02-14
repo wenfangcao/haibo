@@ -1,5 +1,6 @@
 <template>
  <div class="outdiv">
+  <PrevDiv></PrevDiv>
   <Header class=".navbar-fixed-top navtop"></Header>
   <section class="section-wrap">
 	<div class="section section-1">
@@ -20,36 +21,63 @@
 	<div class="section section-2">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-6 sec2leftOutDiv"   @mousedown="kdown" @mousemove="kmove">
+				<div class="col-md-6 col-xs-12 sec2leftOutDiv" @mousedown="kdown" @mousemove="kmove">
 					<div class="sec2LeftDiv text-center" >
 						<div :style = "'left:'+canMoveList[0]+'px'">
 							<h6>DEAL OF THE DAY</h6>
 							<h3>OSAMA LEATHER BAG</h3>
 							<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, autem eveniet? Voluptatum, cupiditate amet maxime in hic quos autem eveniet voluptatibus voluptatem asperiores exercitationem odit quibusdam voluptas animi ipsam atque.</span>
 							<p>
-								<span class="font-NowPrice">$330</span>
+								<span class="font-NowPrice">$310</span>
 								<span class="font-PrePrice">&nbsp;$750&nbsp;  </span>
 							</p>
 							<ul>
 								<li class="pull-left text-center">
-									<span>00</span><br>
+									<span>{{canBuyTime0[0]}}</span><br>
 									<span>DAYS</span>
 								</li>
 								<li class="pull-left text-center">
-									<span>00</span><br>
+									<span>{{canBuyTime0[1]}}</span><br>
 									<span>HOURS</span>
 								</li>
 								<li class="pull-left text-center">
-									<span>00</span><br>
+									<span>{{canBuyTime0[2]}}</span><br>
 									<span>MINS</span>
 								</li>
 								<li class="pull-left text-center">
-									<span>00</span><br>
+									<span>{{canBuyTime0[3]}}</span><br>
 									<span>SECS</span>
 								</li>
 							</ul>
 						</div>
-						<div :style = "'left:'+canMoveList[1]+'px'" >
+						<div :style = "'left:'+canMoveList[1]+'px'">
+							<h6>DEAL OF THE DAY</h6>
+							<h3>OSAMA LEATHER BAG</h3>
+							<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, autem eveniet? Voluptatum, cupiditate amet maxime in hic quos autem eveniet voluptatibus voluptatem asperiores exercitationem odit quibusdam voluptas animi ipsam atque.</span>
+							<p>
+								<span class="font-NowPrice">$320</span>
+								<span class="font-PrePrice">&nbsp;$750&nbsp;  </span>
+							</p>
+							<ul>
+								<li class="pull-left text-center">
+									<span>{{canBuyTime1[0]}}</span><br>
+									<span>DAYS</span>
+								</li>
+								<li class="pull-left text-center">
+									<span>{{canBuyTime1[1]}}</span><br>
+									<span>HOURS</span>
+								</li>
+								<li class="pull-left text-center">
+									<span>{{canBuyTime1[2]}}</span><br>
+									<span>MINS</span>
+								</li>
+								<li class="pull-left text-center">
+									<span>{{canBuyTime1[3]}}</span><br>
+									<span>SECS</span>
+								</li>
+							</ul>
+						</div>
+						<div :style = "'left:'+canMoveList[2]+'px'">
 							<h6>DEAL OF THE DAY</h6>
 							<h3>OSAMA LEATHER BAG</h3>
 							<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, autem eveniet? Voluptatum, cupiditate amet maxime in hic quos autem eveniet voluptatibus voluptatem asperiores exercitationem odit quibusdam voluptas animi ipsam atque.</span>
@@ -59,57 +87,36 @@
 							</p>
 							<ul>
 								<li class="pull-left text-center">
-									<span>00</span><br>
+									<span>{{canBuyTime2[0]}}</span><br>
 									<span>DAYS</span>
 								</li>
 								<li class="pull-left text-center">
-									<span>00</span><br>
+									<span>{{canBuyTime2[1]}}</span><br>
 									<span>HOURS</span>
 								</li>
 								<li class="pull-left text-center">
-									<span>00</span><br>
+									<span>{{canBuyTime2[2]}}</span><br>
 									<span>MINS</span>
 								</li>
 								<li class="pull-left text-center">
-									<span>00</span><br>
+									<span>{{canBuyTime2[3]}}</span><br>
 									<span>SECS</span>
 								</li>
 							</ul>
+							
 						</div>
-						<div :style = "'left:'+canMoveList[2]+'px'" >
-							<h6>DEAL OF THE DAY</h6>
-							<h3>OSAMA LEATHER BAG</h3>
-							<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, autem eveniet? Voluptatum, cupiditate amet maxime in hic quos autem eveniet voluptatibus voluptatem asperiores exercitationem odit quibusdam voluptas animi ipsam atque.</span>
-							<p>
-								<span class="font-NowPrice">$330</span>
-								<span class="font-PrePrice">&nbsp;$750&nbsp;  </span>
-							</p>
-							<ul>
-								<li class="pull-left text-center">
-									<span>00</span><br>
-									<span>DAYS</span>
-								</li>
-								<li class="pull-left text-center">
-									<span>00</span><br>
-									<span>HOURS</span>
-								</li>
-								<li class="pull-left text-center">
-									<span>00</span><br>
-									<span>MINS</span>
-								</li>
-								<li class="pull-left text-center">
-									<span>00</span><br>
-									<span>SECS</span>
-								</li>
-							</ul>
-						</div>
+						<ol>
+							<li @click = "kclick(500)" :class = "{opa:canMoveList[3]}"></li>
+							<li @click = "kclick(0)" :class = "{opa:canMoveList[4]}"></li>
+							<li @click = "kclick(-500)" :class = "{opa:canMoveList[5]}"></li>
+						</ol>
 					</div>	
 				</div>
-				<div class="col-xs-6">
+				<div class="col-md-6 col-xs-12"  @mousedown="kdown" @mousemove="kmove">
 					<div class="sec2RightDiv">
-						<div><img src="../assets/img/home/101.jpg" alt=""></div>
-						<div><img src="../assets/img/home/102.jpg" alt=""></div>
-						<div><img src="../assets/img/home/103.jpg" alt=""></div>
+						<div class="sec2RightD0" :style = "'left:'+canMoveList[0]+'px'"><img src="../assets/img/home/101.jpg" alt=""></div>
+						<div class="sec2RightD1" :style = "'left:'+canMoveList[1]+'px'"><img src="../assets/img/home/102.jpg" alt=""></div>
+						<div class="sec2RightD2" :style = "'left:'+canMoveList[2]+'px'"><img src="../assets/img/home/103.jpg" alt=""></div>
 					</div>
 				</div>
 			</div>
@@ -258,6 +265,7 @@
 	import '../assets/js/jquery-3.2.1.js'
 	import '../assets/js/homePage.js'
 	import Vue from 'Vue'
+	import PrevDiv from './PrevWord'
 	
 	
 	
@@ -268,9 +276,13 @@
 			   n : 0	,
 			   detailWord:['为','注','重','着','装','品','味','与','品','质','的','成','功','男','士','提','供','彰','显','内','涵','和','个','性','的','时','尚','男','装','系','列','产','品'],
 			   camMove : false ,
-			   canMoveList:[0,500,1000],
+			   canMoveList:[0,500,1000,1,0,0],
 			   startMoveX : 0 ,
-			   timer : ""
+			   timer : "",
+			   canBuyTime0:['99','88','55','44','2018/3/1'],
+			   canBuyTime1:['88','77','99','00','2018/2/15'],
+			   canBuyTime2:['11','22',33,'44','2018/2/20'],
+			   canbuyTimer:''
 			}
 		},    
 		methods:{
@@ -281,9 +293,8 @@
 			},
 			endHover:function (){
 				this.timer = setInterval(()=>{this.n++;this.ban();},5000);
-			},
-				//下侧小按钮
-			changeLi(){
+			},				
+			changeLi(){//下侧小按钮
 				var lis = document.querySelectorAll(".ulbtn>li");
 				$(".ulbtn>li").removeClass("ulbtncolor");
 				lis[this.n].className="ulbtncolor";
@@ -319,12 +330,20 @@
 			kset(p){
 				function rand(k){
 					if(k<-500) k += 1500 ;
-					if(k>1000) k -= 1500 ;
+					if(k>999) k -= 1500 ;
+					if(k==1500) k==0 ;
 					return k;
 				};
 				Vue.set(this.canMoveList,0,rand(p-500));
 				Vue.set(this.canMoveList,1,rand(p));
-				Vue.set(this.canMoveList,2,rand(p+500));
+				Vue.set(this.canMoveList,2,rand(p+500));//-500 0 500 
+				
+				Vue.set(this.canMoveList,3,0);
+				Vue.set(this.canMoveList,4,0);
+				Vue.set(this.canMoveList,5,0);
+				if(p<-250) Vue.set(this.canMoveList,5,1);
+				else if(p>250) Vue.set(this.canMoveList,3,1);
+				else Vue.set(this.canMoveList,4,1);
 			},
 			kdown(e){
 				if(this.timer){
@@ -336,45 +355,27 @@
 					var p = this;
 					this.canMove = false;
 					var mid = this.canMoveList[1];//-500  0   500   1000
-					var a1 = mid - (-250);
-					var a2 = mid - 250;
-					var a3 = mid - 750;
 					function reset(i,target){
+						if(mid != -500 && mid != 0 && mid != 500 && mid != 1000)
 						p.timer = setInterval(()=>{
 							if(i){mid++;}else{mid--;}
 							p.kset(mid);
-							if(mid == target) {
+							if(mid == -500 || mid == 0 || mid == 500 || mid == 1000) {
 								clearInterval(p.timer);
 								p.timer = null;
 							}
-						},10);
+						},2);
 					}
-					if(a1>a2 && a1>a3){
-						if(a1>0){
-							reset(1,0);
-						}else{
-							reset(0,-500);
+					function lastSet(){
+						if(mid>-500 && mid <0){
+							mid<-250?reset(0):reset(1);
+						}else if(mid >0 && mid < 500){
+							mid<250?reset(0):reset(1);
+						}else if(mid >500 && mid < 1000){
+							mid<750?reset(0):reset(1);
 						}
-						
 					}
-					  
-					if(a2>a1 && a2>a3){
-						if(a2>0){
-							reset(1,500);
-						}else{
-							reset(0,0);
-						}
-						
-					}
-					
-					if(a3>a2 && a3>a1) {
-						if(a3>0){
-							reset(1,1000);
-						}else{
-							reset(0,500);
-						}
-						
-					}
+					lastSet();
 				}
 				e =e ||event;
 				this.oLeft = e.screenX;
@@ -394,11 +395,66 @@
 					}	
 					
 				}     
-			}
-			
-			
-		},
-		
+			},
+			kclick(tar){
+				if(this.timer){
+					clearInterval(this.timer);
+					this.timer = null;
+				}
+				var mid = this.canMoveList[1];
+				var k = 1;
+				var Dv = 0 ;
+				if(((mid -tar)>0?mid-tar:tar-mid)<11){return;}
+				tar>mid? k =5:k=-5;
+				this.timer = setInterval(()=>{
+							Dv = (mid -tar)>0?mid-tar:tar-mid;
+							if(Dv<11) {
+								clearInterval(this.timer);
+								this.timer = null;
+							}
+							mid +=k ;
+							this.kset(mid);
+				},1)
+			},
+			canBuyTimeIs(arr){
+				if(this.canbuyTimer){
+					clearInterval(this.timer);
+					this.timer = null ;
+				}
+				var days = arr[0],
+					hours = arr[1],
+					mins = arr[2],
+					secs = arr[3];
+				var target = new Date(arr[4]) ;	
+				var m = "";
+				var setIimer = setInterval(()=>{
+					for(var i = 0 ;i<4;i++){
+						m = arr[i] ;
+						m<0?m=99:m--;
+						this.$set(arr,i,m)
+					}
+				},10);
+				setTimeout(()=>{
+					clearInterval(setIimer);
+					setIimer = null ;
+				},3000);
+				this.canbuyTimer = setInterval(()=>{
+					var nowTime = new Date();
+					var Dvalue = parseInt((target - nowTime)/1000) ;
+					days = parseInt(Dvalue/3600/24);
+					hours = parseInt(Dvalue%(3600*24)/3600);
+					mins = parseInt(Dvalue%3600/60);
+					secs = Dvalue%60;
+					if( days<=0 && hours<=0 && mins<=0 && secs<=0){
+						days = hours = mins = secs = 0 ;
+					}
+					this.$set(arr,0,(days<10?'0'+days:days));
+					this.$set(arr,1,(hours<10?'0'+hours:hours));
+					this.$set(arr,2,(mins<10?'0'+mins:mins));
+					this.$set(arr,3,(secs<10?'0'+secs:secs));
+				},1000);
+			}	
+		},	
 		mounted(){
 			var thisComponent = this;
 			$('body').css("overflow","hidden");
@@ -417,6 +473,7 @@
 				/*section 动画*/
 				function section(){
 					$('.outdiv .section-1 .leftDiv .sec1A').removeClass("sec1AA");
+					$('.section-1 .rightDiv').css('left',"2000px");
 					$('.outdiv .sec3A').removeClass("sec3AA");
 					$('.outdiv .section-3 .h2').removeClass('animation');
 					$('.outdiv .section-4 .ani').removeClass('anima');
@@ -425,7 +482,12 @@
 					if(i==0){
 						setTimeout(()=>{
 							$('.outdiv .section-1 .leftDiv  .sec1A').addClass("sec1AA");
+							$('.section-1 .rightDiv').css('left',0);
 						},300);
+					}else if(i==1){
+						thisComponent.canBuyTimeIs(thisComponent.canBuyTime0);
+						thisComponent.canBuyTimeIs(thisComponent.canBuyTime1);
+						thisComponent.canBuyTimeIs(thisComponent.canBuyTime2);
 					}else if(i==2){
 						$('.outdiv .section-3 .h2').addClass('animation');
 						var timerSec3 = setInterval(()=>{	
@@ -435,12 +497,12 @@
 						},100);
 						setTimeout(()=>{
 							$('.outdiv .sec3A').addClass("sec3AA");	
-							
 						},300);
 						setTimeout(()=>{
 							clearInterval(timerSec3);
 							$(".outdiv .banner img").css("transition","all .6s ease-in-out");
 						},1200);
+
 					}else if(i==3){
 						$('.outdiv .section-4 .ani').addClass('anima');
 						$('.outdiv .section-4 .barandimglist').addClass('bord');
@@ -517,8 +579,10 @@
 			clearInterval(this.timer);
 			this.timer = null; 
 			$('body').css("overflow","visible");
+		},
+		components:{
+			'PrevDiv':PrevDiv
 		}
-		
 	}
 
 </script>

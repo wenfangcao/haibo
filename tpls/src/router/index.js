@@ -2,10 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Header from '@/components/Header'
 import HomePage from '@/components/HomePage'
-import History from '@/components/History.vue'
+import CustomTailor from '@/components/CustomTailor.vue'
 import Product from '@/components/Product'
 import ManageLogin from '@/components/manage/ManLogin'
 import Manmain from '@/components/manage/ManMain'
+import Recruit from '@/components/Recruit';
 Vue.use(Router)
 
 
@@ -23,9 +24,9 @@ export default new Router({
       component: HomePage
     },
     {
-      path: '/history',
-      name: 'history',
-      component: History
+      path: '/CustomTailor',
+      name: 'CustomTailor',
+      component: CustomTailor
     },
     {
       path: '/product',
@@ -41,6 +42,11 @@ export default new Router({
       path:'/manmain',
       name:"manmain",
       component:Manmain
+    },
+    {
+      path:'/recruit',
+      name:'recruit',
+      component:Recruit
     }
   ]
 })
